@@ -1,13 +1,14 @@
 import Todo from './Todo'
 import PlusIcon from '@heroicons/react/24/outline/PlusIcon'
 
-export const TodoList = ({todos, setTodos}) => {
+const TodoList = ({todos, setTodos}) => {
 
   const addTodo = (title) => {
     const newTodo = {
       id: Date.now(),
       title,
       completed: false,
+      show: true,
     };
 
     setTodos([...todos, newTodo]);
@@ -44,7 +45,8 @@ export const TodoList = ({todos, setTodos}) => {
         </tr>
       </thead>
       <tbody>
-        {todos.map((todo) => (
+
+        {todos.filter(i => i.show).map((todo) => (
           <Todo key={todo.id} id={todo.id} title={todo.title} completed={todo.completed} toggleCompleted={toggleCompleted} deleteTodo={deleteTodo} />
         ))}
 
@@ -63,4 +65,4 @@ export const TodoList = ({todos, setTodos}) => {
   )
 }
 
-TodoList.propTypes = {}
+export default TodoList
