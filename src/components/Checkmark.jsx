@@ -1,6 +1,7 @@
 import StopIcon from '@heroicons/react/24/outline/StopIcon'
 import CheckIcon from '@heroicons/react/24/outline/CheckIcon'
 
+// This component is a custom alternative for default input checkbox
 const Checkmark = ({checked}) => {
   return (
     <div className="w-[26px] h-[26px] relative flex-none">

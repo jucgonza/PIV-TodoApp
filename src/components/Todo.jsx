@@ -3,7 +3,7 @@ import TrashIcon from '@heroicons/react/24/outline/TrashIcon'
 import Checkmark from './Checkmark'
 
 const Todo = ({id, title, completed, toggleCompleted, deleteTodo}) => {
-  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false); // Shows confirmation alert before deleting
 
   return (
     <tr className="border-t border-gray-300">

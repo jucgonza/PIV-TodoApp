@@ -38,12 +38,16 @@ function App() {
 
   return (
     <div className="mx-auto my-5 w-[90%] sm:w-[80%] max-w-[1000px]">
+
+      {/* Statistics and filters */}
       <p className="my-2 flex items-center gap-2">
         <ArrowTrendingUpIcon className="size-5 flex-none text-gray-600"/>
         <span className="text-gray-800">
           <FilterButton id="completedFilter" activeFilter={activeFilter} changeFilter={changeFilter}>{todos.filter(i => i.completed).length} completed</FilterButton>, <FilterButton id="pendingFilter" activeFilter={activeFilter} changeFilter={changeFilter}>{todos.filter(i => !i.completed).length} pending</FilterButton> out of {todos.length} tasks
         </span>
       </p>
+
+      {/* List of todos */}
       <TodoList todos={todos} setTodos={setTodos}/>
     </div>
   )

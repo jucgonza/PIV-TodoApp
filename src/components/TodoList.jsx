@@ -3,9 +3,10 @@ import PlusIcon from '@heroicons/react/24/outline/PlusIcon'
 
 const TodoList = ({todos, setTodos}) => {
 
+  // Creates new todo and updates App's todos state
   const addTodo = (title) => {
     const newTodo = {
-      id: Date.now(),
+      id: Date.now(), // Id is current time in milliseconds
       title,
       completed: false,
       show: true,
@@ -14,10 +15,12 @@ const TodoList = ({todos, setTodos}) => {
     setTodos([...todos, newTodo]);
   }
 
+  // Deletes todo with id
   const deleteTodo = (id) => {
     setTodos(todos.filter( i => i.id != id));
   }
 
+  // Switches completion of task on and off 
   const toggleCompleted = (id) => {
     setTodos(todos.map(i => {
       if(i.id == id){
@@ -27,12 +30,16 @@ const TodoList = ({todos, setTodos}) => {
     }))
   }
 
+  // Handles new task form submission
   const submitForm = (e) => {
     e.preventDefault();
     const title = e.target[0].value;
+
+    // Validates empty field
     if (title.trim() === '') return;
+    
     addTodo(title);
-    e.target[0].value = '';
+    e.target[0].value = ''; // Empties field after submission
   }
 
   return (
